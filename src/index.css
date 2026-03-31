@@ -1,0 +1,88 @@
+:root {
+  /* Цвета — основные */
+  --color-primary: #242edb;
+  --color-accent: #3c538e;
+  --color-error: #e61740;
+  --color-white: #fff;
+  --color-black: #000;
+
+  /* Цвета — текст */
+  --color-text: #232323;
+  --color-text-title: #333;
+  --color-text-heading: #161919;
+  --color-text-muted: #b2b3b9;
+  --color-text-secondary: #a3acb8;
+
+  /* Цвета — границы */
+  --color-border: #ededed;
+  --color-border-light: #f0f0f0;
+  --color-border-hover: #bcc4cf;
+
+  /* Цвета — фон */
+  --color-bg-page: #f6f6f6;
+  --color-bg-input: #f5f6f7;
+  --color-bg-progress: #e6e9ed;
+  --color-bg-progress-fill: #1c7bff;
+
+  /* Шрифты */
+  --font-inter: "Inter", sans-serif;
+  --font-cairo: "Cairo", sans-serif;
+  --font-open-sans: "Open Sans", sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+}
+
+#root {
+  font-family: var(--font-inter);
+  width: 1440px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg-page);
+}
+
+p {
+  margin: 0;
+}
+
+input {
+  padding: 8px 6px;
+  border: none;
+  height: auto;
+  width: 100%;
+  flex: 1;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-text);
+}
+
+input:focus-visible {
+  outline: none;
+  border: none;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--color-border);
+  width: 24px;
+  height: 24px;
+}
+
+.icon-cursor {
+  cursor: pointer;
+}
