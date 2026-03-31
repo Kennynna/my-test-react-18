@@ -1,19 +1,9 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router";
-import {
-  AuthLogoIcon,
-  CloseIcon,
-  PersonIcon,
-} from "../assets/icons/auth-icons.tsx";
-import { Text } from "../ui/Text.tsx";
-import { Button } from "../ui/Button.tsx";
-import { useLoginMutation } from "../entities/user/api/queries.ts";
-import { useAuthStore } from "../entities/user/model/store.ts";
-import {
-  validateLoginForm,
-  type LoginFormErrors,
-} from "../entities/user/model/validation.ts";
-import { resolveAuthError } from "../shared/lib/errors.ts";
+import { AuthLogoIcon, CloseIcon, PersonIcon } from "../assets/icons/index.ts";
+import { Text, Button } from "../ui/index.ts";
+import { useLoginMutation, useAuthStore, validateLoginForm, type LoginFormErrors } from "../entities/user/index.ts";
+import { resolveAuthError } from "../shared/lib/index.ts";
 
 export const Auth = () => {
   const usernameRef = useRef<HTMLInputElement>(null);

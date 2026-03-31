@@ -1,13 +1,14 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { lazy, Suspense, useState, useEffect, useRef, useCallback } from 'react';
 import toast from 'react-hot-toast';
-import { Text } from '../ui/Text.tsx';
-import { Modal } from '../ui/Modal.tsx';
-import { ProductTable } from '../components/ProductTable.tsx';
+import { Text, Modal, Spinner } from '../ui/index.ts';
 import { AddProductForm } from '../components/AddProductForm.tsx';
-import { useProducts } from '../entities/product/api/queries.ts';
-import { RefreshIcon, SearchIcon, AddButtonIcon } from '../assets/icons/table-icons.tsx';
-import { CloseIcon } from '../assets/icons/auth-icons.tsx';
+import { useProducts } from '../entities/product/index.ts';
+import { RefreshIcon, SearchIcon, AddButtonIcon, CloseIcon } from '../assets/icons/index.ts';
 import type { SortingState, PaginationState } from '@tanstack/react-table';
+
+const ProductTable = lazy(() =>
+  import('../components/ProductTable.tsx').then((m) => ({ default: m.ProductTable })),
+);
 
 const PAGE_SIZE = 5;
 const DEBOUNCE_MS = 400;
@@ -87,15 +88,17 @@ export const Home = () => {
             </div>
           </div>
 
-          <ProductTable
-            data={data?.products ?? []}
-            total={data?.total ?? 0}
-            sorting={sorting}
-            onSortingChange={setSorting}
-            pagination={pagination}
-            onPaginationChange={setPagination}
-            isLoading={isLoading || isFetching}
-          />
+          <Suspense fallback={<div className="table-loader"><Spinner size={36} color="#242EDB" borderWidth={3} /></div>}>
+            <ProductTable
+              data={data?.products ?? []}
+              total={data?.total ?? 0}
+              sorting={sorting}
+              onSortingChange={setSorting}
+              pagination={pagination}
+              onPaginationChange={setPagination}
+              isLoading={isLoading || isFetching}
+            />
+          </Suspense>
         </div>
       </div>
 

@@ -1,9 +1,6 @@
 import { useRef, useState } from 'react';
-import { Button } from '../ui/Button.tsx';
-import {
-  validateAddProductForm,
-  type AddProductFormErrors,
-} from '../entities/product/model/validation.ts';
+import { Button } from '../ui/index.ts';
+import { validateAddProductForm, type AddProductFormErrors } from '../entities/product/index.ts';
 
 interface AddProductFormProps {
   onSuccess: () => void;

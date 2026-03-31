@@ -5,10 +5,8 @@ import {
   type SortingState,
   type PaginationState,
 } from '@tanstack/react-table';
-import type { Product } from '../entities/product/types.ts';
-import { productColumns } from '../entities/product/model/columns.tsx';
-import { useSelection } from '../entities/product/model/useSelection.ts';
-import { Pagination } from '../ui/Pagination.tsx';
+import { productColumns, useSelection, type Product } from '../entities/product/index.ts';
+import { Pagination } from '../ui/index.ts';
 
 interface ProductTableProps {
   data: Product[];

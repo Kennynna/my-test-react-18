@@ -1,4 +1,4 @@
-import { KebabIcon, TableAddButton } from '../../../assets/icons/table-icons.tsx';
+import { KebabIcon, TableAddButton } from '../../../assets/icons/index.ts';
 
 export const ActionsCell = () => (
   <div className="cell-actions">
