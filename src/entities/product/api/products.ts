@@ -1,6 +1,6 @@
 import type { ProductsResponse, ProductsParams } from '../types.ts';
+import { API_URL } from '../../../shared/config/index.ts';
 
-const BASE_URL = 'https://dummyjson.com';
 
 export async function getProducts(params: ProductsParams = {}): Promise<ProductsResponse> {
   const searchParams = new URLSearchParams();
@@ -13,9 +13,7 @@ export async function getProducts(params: ProductsParams = {}): Promise<Products
   const isSearch = Boolean(params.q);
   if (isSearch) searchParams.set('q', params.q!);
 
-  const endpoint = isSearch
-    ? `${BASE_URL}/products/search`
-    : `${BASE_URL}/products`;
+  const endpoint = isSearch ? API_URL.products.search : API_URL.products.list;
 
   const response = await fetch(`${endpoint}?${searchParams}`);
 
